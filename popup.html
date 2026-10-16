@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tab Group Reloader</title>
+  <style>
+    :root { color-scheme: light dark; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; width: 330px; background: #161a22; color: #f2f4fa; }
+    header { display: flex; align-items: center; gap: 10px; padding: 19px 18px 15px; border-bottom: 1px solid #2d3441; }
+    header img { height: 25px; width: 25px; }
+    h1 { margin: 0; font-size: 16px; font-weight: 650; letter-spacing: -.2px; }
+    .subtitle { margin: 0; padding: 14px 18px 10px; color: #aeb9c9; font-size: 12px; }
+    #groups { display: grid; gap: 8px; padding: 0 12px 12px; max-height: 410px; overflow-y: auto; }
+    .group { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; padding: 10px 10px 10px 12px; border: 1px solid #333b4a; background: #232a36; border-radius: 11px; }
+    .group-info { min-width: 0; display: flex; align-items: center; gap: 10px; }
+    .dot { flex: none; width: 11px; height: 11px; border-radius: 100%; }
+    .group-text { min-width: 0; }
+    .group-name { font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 167px; }
+    .group-count { margin-top: 3px; font-size: 11px; color: #a9b5c4; }
+    button { flex: none; padding: 8px 11px; border: 1px solid #536b96; border-radius: 8px; color: #e8f0ff; background: #344765; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+    button:hover { background: #405779; }
+    button:focus-visible { outline: 2px solid #98b9ff; outline-offset: 2px; }
+    button:disabled { opacity: .5; cursor: wait; }
+    #empty { padding: 12px 16px 18px; font-size: 13px; text-align: center; color: #bdc6d4; }
+    #status { min-height: 0; margin: 0; padding: 0 18px; color: #a9d6b4; font-size: 12px; line-height: 1.4; }
+    #status:not(:empty) { padding-bottom: 12px; }
+    #status.error { color: #ffaba5; }
+    footer { border-top: 1px solid #2d3441; padding: 11px 18px 13px; color: #96a4b7; font-size: 11px; }
+  </style>
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <header>
+    <img src="icons/icon128.png" alt="">
+    <h1>Tab Group Reloader</h1>
+  </header>
+  <p class="subtitle">Choose a group to reload</p>
+  <main id="groups" aria-label="Groups in this Chrome window"></main>
+  <p id="status" role="status" aria-live="polite"></p>
+<footer>
+  <div class="copyright">
+    © 2026 ·
+    <a href="https://github.com/jmd196"
+       target="_blank"
+       rel="noopener noreferrer">jmd196</a>
+    · <a href="https://opensource.org/license/mit"
+      target="_blank"
+      rel="noopener noreferrer">MIT License</a>
+  </div>
+</footer>
+</body>
+</html>
